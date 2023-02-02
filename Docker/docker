@@ -11,7 +11,9 @@
  	 	CREATE:   PROCEDEMOS A CREAR EL CONTENEDOR EN BASE A LAS IMAGENES LAS CUALES HICIMOS PULL EJ: DOCKER CREATE MONGO. ESTO DEVUELVE LA ID DEL CONTENEDOR CREADO
 				--name esto sirve para asignarle un nombre al contenedor. EJ: DOCKER CREATE --NAME <nombre para el contenedor> <nombre de la imagen para a utilizar>
 				-p sirve para mapear el puerto interno del docker al puerto del host EJ: DOCKER CREATE -p<puerto DOCKER>:<puerto host> --name <nombrecpara el contenedor> <nombre de la imagen a utilizar>
-
+				-e variables de entorno uno por cada variable
+				--network se usa para asignar al contendor una red interna
+				
  	 	START:	  SIRVE PARA COMERZAR A CORRER UN CONTENEDOR PREVIAMENTE CREADO EJ: DOCKER START <ID ANTERIORMENTE CREADA> o <NOMBRE DEL CONTENEDOR>
  	 	STOP:	  SIRVE PARA DETENER LA EJECUCION DE UN CONTAINER EJ: DOCKER STOP <ID DEL CONTENEDOR>
  	 	
@@ -20,3 +22,15 @@
 		
 		LOG:	NOS PERMITE VER EL LOG DE CONTENDOR QUE SELECCIONEMOS EJ: DOCKER LOG <id del contenedor o nombre>
 				--follow permite mantener el log abierto y actualizandose en tiempo real DOCKER --follow <ID O NOMBRE DEL CONTENEDOR>
+
+		RUN:	EJECUTA PULL CREATE Y START EJ: DOCKER RUN --NAME MONGUITO -P27017:27017 -d MONGO
+			-d  dittach ejecuta el comando sin abrir el log
+			-e definir variables de entorno se usa por cada variable de entorno
+		
+		NETWORK: redes entre CONTENEDORES
+				LS sirve para listar todas las redes dentro de docker
+				CREATE sirve para crear una red ej: DOCKER NETWORK CREATE <NOMBRE DE MI RED>
+				RM con este comando podemos eliminar una red ej: DOCKER NETWORK RM <NOMBRE DE MI RED>
+		
+		BUILD: nos permite crear una imagen a partir de un dockerfile ej: DOCKER BUILD -T <NOMBRE PARA LA IMAGEN>:<TAG> <DIRECCION DEL DOCKER FILE>
+				-t tag
